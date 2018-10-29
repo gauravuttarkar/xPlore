@@ -1,0 +1,9 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from . import templates
+
+def index(request):
+	print("Hitting Home Page Successfull")
+
+	#return HttpResponse("Done and dusted")
+	return render(request,'SpaceX/templates/home.html')
