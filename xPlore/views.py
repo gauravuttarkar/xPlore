@@ -6,4 +6,4 @@ def index(request):
 	print("Hitting Home Page Successfull")
 
 	#return HttpResponse("Done and dusted")
-	return render(request,'SpaceX/templates/home.html')
+	return render(request,'xPlore/templates/home.html')
