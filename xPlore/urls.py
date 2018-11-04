@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from planets import urls as planets_urls
-
+from galaxy import urls as galaxy_urls
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
-    path('planets/',include(planets_urls))
+    path('planets/',include(planets_urls)),
+    path('galaxies/',include(galaxy_urls))
+
 ]
