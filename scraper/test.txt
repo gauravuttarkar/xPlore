@@ -1,0 +1,7 @@
+insert into galaxy_galaxy ( galaxyName, image, constellation, origin, distance) values (
+'Whirlpool Galaxy',
+'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Messier51_sRGB.jpg/70px-Messier51_sRGB.jpg',
+'Canes Venatici',
+'From the whirlpool appearance this gravitationally disturbed galaxy exhibits.',
+23
+);
