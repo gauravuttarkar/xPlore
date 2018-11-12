@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galaxy',
     'constellations' ,
-    'stars'   
+    'stars'   ,
+    'satellites'
 ]
 
 MIDDLEWARE = [

@@ -30,6 +30,7 @@ class solarPlanets(models.Model):
 class exoPlanets(models.Model):
 	planetName = models.ForeignKey(planet,on_delete=models.CASCADE) 
 	distanceFromEarth = models.CharField(max_length=100,null=False, default= None)
+	
 
 
     	
