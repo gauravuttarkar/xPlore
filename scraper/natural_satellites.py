@@ -44,7 +44,7 @@ for i in li[20:214]:
 # 	print(j)	
 
 
-conn = mysql.connector.connect(user='root', database='xplore', password='root123')
+conn = mysql.connector.connect(user='gaurav', database='xplore', password='root123')
 
 cursor = conn.cursor()	
 j=1

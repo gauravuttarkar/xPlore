@@ -35,14 +35,14 @@ list0 = list0[4:]
 for i in list0[:100]:
 	print(i)
 
-conn = mysql.connector.connect(user='root', database='xplore', password='root123')
+conn = mysql.connector.connect(user='gaurav', database='xplore', password='root123')
 
 cursor = conn.cursor()	
 for i in list0:
 	try:
 		query = "INSERT INTO stars_star values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 		# print(i[0],i[4],i[5],i[6])
-		args= (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9],i[10],i[11])
+		args= (i[0],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9],i[10],i[11],i[1])
 		cursor.execute(query, args)
 	except:
 		print(i)	

@@ -16,7 +16,7 @@ li = soup.select("tbody tr")
 print(type(li))
 print(len(li))
 list0 = []
-for i in li[85:90]:
+for i in li[2:90]:
 	#print(i.get_text())
 	objs = i.select("td")
 	#print(objs);
@@ -39,16 +39,16 @@ for i in list0:
 	print(i)	
 
 
-conn = mysql.connector.connect(user='root', database='xplore', password='root123')
+conn = mysql.connector.connect(user='gaurav', database='xplore', password='root123')
 
 cursor = conn.cursor()	
 print(list0)
-list0 = list0[:2]
-j = 87
+
+j = 1
 for i in list0:
-	query = "INSERT INTO constellations_constellation values(%s,%s,%s,%s,%s)"
+	query = "INSERT INTO constellations_constellation values(%s,%s,%s,%s)"
 	print(i[0],i[4],i[5],i[6])
-	args= (j,i[0],i[4],i[5],i[6])
+	args= (i[0],i[4],i[5],i[6])
 	cursor.execute(query, args)
 	j = j + 1
 	#cursor.commit()

@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from satellites import urls as satellites_urls
 from planets import urls as planets_urls
 from galaxy import urls as galaxy_urls
 from stars import urls as stars_urls
+from constellations import urls as constellations_urls
 from . import views
 
 urlpatterns = [
@@ -25,6 +27,7 @@ urlpatterns = [
     path('',views.index),
     path('planets/',include(planets_urls)),
     path('galaxies/',include(galaxy_urls)),
-    path('stars/',include(stars_urls))
-
+    path('stars/',include(stars_urls)),
+    path('satellites/',include(satellites_urls)),
+    path('constellations/',include(constellations_urls))
 ]

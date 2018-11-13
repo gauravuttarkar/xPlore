@@ -1,0 +1,154 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
+    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
+    <meta content="PPType" name="author" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>xPLore - Satellites </title>
+    <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'dist/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dist/jquery/accordion.js' %}"></script>
+    
+    <script language='javascript'>
+                 $(document).ready(function(){
+                    $('.ui.accordion').accordion();
+                 });
+    </script>
+    
+  </head>
+  <body>
+    <div class="ui fixed borderless inverted menu">
+      <div class="ui container">
+        <a class="header item">xPlore</a>
+        <div class="right menu">
+          <div class="ui form">
+            <div class="inline fields">
+              <div class="field">
+                <input placeholder="Email" type="text" />
+              </div>
+              <div class="field">
+                <input placeholder="Password" type="text" />
+              </div>
+              <div class="field">
+                <div class="ui green button">
+                  Sign in
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui grid massive message">
+      <div class="ui container">
+        <div class="row">
+          <div class="h1 ui huge header">
+          {{ satellite.satelliteName }}
+          </div>
+ 
+          
+        </div>
+      </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui container">
+ <div class="ui inverted segment">
+  <div class="ui inverted accordion">
+    <div class="active title">
+      <i class="dropdown icon"></i>
+      Country of origin
+    </div>
+    <div class="active content">
+      <p>{{ satellite.origin }}</p>
+    </div>
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Users
+    </div>
+    <div class="content">
+      <p>{{ satellite.users }}</p>
+    </div>
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Class of Orbit
+    </div>
+    <div class="content">
+      <p>{{ satellite.classOfOrbit }}</p>
+    </div>
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Type of Orbit
+    </div>
+    <div class="content">
+      <p>{{ satellite.typeOfOrbit }}</p>
+    </div>
+    <div class="title">
+      <i class="dropdown icon"></i>
+    Period
+    </div>
+    <div class="content">
+      <p>{{ satellite.period }} days</p>
+    </div>
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Date of Launch
+    </div>
+    <div class="content">
+      <p>{{ satellite.dateOfLaunch }}</p>
+    </div>
+        <div class="title">
+      <i class="dropdown icon"></i>
+      Launch Site
+    </div>
+    <div class="content">
+      <p>{{ satellite.launchSite}}</p>
+    </div>
+
+        <div class="title">
+      <i class="dropdown icon"></i>
+      Launch vehicle
+    </div>
+    <div class="content">
+      <p>{{ satellite.launchVehicle }}</p>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+<!--         <div class="row">
+          <div class="column">
+            <div class="ui divider"></div>
+            <footer>
+              &copy; 2017 Company, Inc.
+            </footer>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <style type="text/css">
+      .ui.form .inline.fields {
+        margin: 0.5em;
+      }
+      
+      .ui.grid.message {
+        background-color: #eeeeee;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .ui.grid.message .row {
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
+      }
+    </style>
+  </body>
+</html>
+

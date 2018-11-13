@@ -43,7 +43,7 @@ for i in li[:3827]:
 random.shuffle(list0)
 for i in list0:
 	print(i)
-conn = mysql.connector.connect(user='root', database='xplore', password='root123')
+conn = mysql.connector.connect(user='gaurav', database='xplore', password='root123')
 
 cursor = conn.cursor()	
 
