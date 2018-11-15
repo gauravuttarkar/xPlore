@@ -7,3 +7,6 @@ def index(request):
 
 	#return HttpResponse("Done and dusted")
 	return render(request,'xPlore/templates/home.html')
+
+def video(request):
+	return render(request,'xPlore/templates/video.html')

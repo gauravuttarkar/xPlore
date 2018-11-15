@@ -121,6 +121,7 @@
   <script src="{% static 'components/visibility.js' %}"></script>
   <script src="{% static 'components/sidebar.js' %}"></script>
   <script src="{% static 'components/transition.js' %}"></script>
+
   <script>
   $(document)
     .ready(function() {
@@ -156,14 +157,14 @@
     <a class="item">Galaxies</a>
     <a class="item">Planets</a>
     <a class="item">Stars</a>
-    <div class="right menu">
+<!--     <div class="right menu">
       <div class="item">
         <a class="ui button">Log in</a>
       </div>
       <div class="item">
         <a class="ui primary button">Sign Up</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -188,13 +189,15 @@
           <i class="sidebar icon"></i>
         </a>
 		    <a class="active item">Home</a>
-		    <a class="item">Galaxies</a>
-		    <a class="item">Planets</a>
-		    <a class="item">Stars</a>
-        <div class="right item">
+		    <a class="item" href="/galaxies">Galaxies</a>
+		    <a class="item" href="/planets">Planets</a>
+		    <a class="item" href="/stars">Stars</a>
+        <a class="item" href="/constellations">Constellations</a>
+        <a class="item" href="/satellites">Satellites</a>
+<!--         <div class="right item">
           <a class="ui inverted button">Log in</a>
           <a class="ui inverted button">Sign Up</a>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -203,7 +206,8 @@
        xPlor
       </h1>
       <h2>To Infinity and beyond</h2>
-      <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+      <a href="/video" ><div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div></a>
+
     </div>
 
   </div>

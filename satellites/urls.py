@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     
     path('',views.index),
-    path('<str:satellite>',views.satelliteFunction)
+    path('search',views.search),
+    path('<str:satellite>',views.satelliteFunction),
+
    
 ]

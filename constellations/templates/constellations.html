@@ -10,7 +10,7 @@
     <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
     <meta content="PPType" name="author" />
     <meta content="#ffffff" name="theme-color" />
-    <title>xPLore - Galaxies </title>
+    <title>xPLore - Constellations </title>
     <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
@@ -23,17 +23,8 @@
         <div class="right menu">
           <div class="ui form">
             <div class="inline fields">
-              <div class="field">
-                <input placeholder="Email" type="text" />
-              </div>
-              <div class="field">
-                <input placeholder="Password" type="text" />
-              </div>
-              <div class="field">
-                <div class="ui green button">
-                  Sign in
-                </div>
-              </div>
+              
+
             </div>
           </div>
         </div>
@@ -60,6 +51,7 @@
     <th>Origin</th>
     <th>Meaning</th>
     <th>Brightest Star</th>
+    <th>Stars </th>
   </tr></thead>
   <tbody>
     {% for constellation in constellations %}
@@ -80,6 +72,9 @@
       </td>
       <td>
         {{constellation.brightestStar}}
+      </td>
+      <td>
+        <a style="color:white" href="/stars/starsFromAConstellation/{{ constellation.constellationName }}"> <button class="ui black button">Stars</button></a>
       </td>
 
     </tr>

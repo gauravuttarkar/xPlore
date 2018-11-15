@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
+    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
+    <meta content="PPType" name="author" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>xPLore - Star </title>
+    <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'dist/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dist/jquery/accordion.js' %}"></script>
+    
+    <script language='javascript'>
+                 $(document).ready(function(){
+                    $('.ui.accordion').accordion();
+                 });
+    </script>
+    
+  </head>
+  <body>
+    <div class="ui fixed borderless inverted menu">
+      <div class="ui container">
+        <a class="header item">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section">Home</a>
+          <div style="color:white" class="divider"> / </div>
+           <a class="section">Stars</a>
+          <div style="color:white" class="divider"> / </div>
+          <div class="active section">{{ star.starName }}</div>
+        </div>
+        <div class="right menu">
+          <div class="ui form">
+            <div class="inline fields">
+              <form class="ui form" action="/stars/search">
+              <div style="padding-right:50px" class="ui action input">
+                <input type="text" placeholder="Search...">
+                <button class="ui button">Search</button>
+              </div>
+              </form>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui grid massive message">
+      <div class="ui container">
+        <div class="row">
+          <div class="h1 ui huge header">
+          {{ star.starName }}
+          </div>
+ 
+          
+        </div>
+      </div>
+    </div>
+    <div class="ui hidden divider"></div>
+      <div class="ui container">
+            <div class="item centered">
+            <div class="ui piled segment">
+              <div class="content">
+                <a class="header">{{ star.starName }}</a>
+                <div class="meta">
+                  <span><em><i>Constellation:</i> </em>  {{ star.constellationName }} </span>
+                </div> 
+                <div class="meta">
+                  <span><i> Right Ascension:</i> {{ star.rightAscension }}</span>
+                </div>
+                <div class="meta">
+                  <span><i> Declination </i> {{ star.declination }}</span>
+                </div>
+                <div class="meta">
+                  <span><i> Apparent Magnitude </i> {{ star.apparentMagnitude }}</span>
+                </div>
+                <div class="meta">
+                  <span><i> Distance </i> {{ star.distance }}</span>
+                </div>    
+                <div class="meta">
+                  <span><i> Spectral Type </i> {{ star.spectralType }}</span>
+                </div> 
+                <div class="meta">
+                  <span><i> Mass </i> {{ star.mass }}</span>
+                </div>
+                <div class="meta">
+                  <span><i> Temperature </i> {{ star.temperature }}</span>
+                </div>   
+                <div class="meta">
+                  <span><i> Age </i> {{ star.age }}</span>
+                </div>     
+                <div class="meta">
+                  <span><i> <a href='/planets/planetsFromAStar/{{star.starName}}'>Planets:</a> </i> {{ star.confirmedPlanets }}</span>
+                </div> 
+              
+
+            </div>
+           </div> 
+ 
+      </div>
+    </div>
+    <style type="text/css">
+      .ui.form .inline.fields {
+        margin: 0.5em;
+      }
+      
+      .ui.grid.message {
+        background-color: #eeeeee;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .ui.grid.message .row {
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
+      }
+    </style>
+  </body>
+</html>
+

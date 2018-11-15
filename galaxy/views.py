@@ -19,3 +19,5 @@ def index(request):
 	#return HttpResponse("Done and dusted")
 	return render(request,'galaxy/templates/jumbotron.html',{'galaxies':li})
 
+def galaxyFunction(request):
+	return HttpResponse("Done and dusted")

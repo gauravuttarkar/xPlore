@@ -29,5 +29,6 @@ urlpatterns = [
     path('galaxies/',include(galaxy_urls)),
     path('stars/',include(stars_urls)),
     path('satellites/',include(satellites_urls)),
-    path('constellations/',include(constellations_urls))
+    path('constellations/',include(constellations_urls)),
+    path('video/',views.video)
 ]

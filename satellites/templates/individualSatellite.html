@@ -28,25 +28,28 @@
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
         <a class="header item">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section">Home</a>
+          <div style="color:white" class="divider"> / </div>
+           <a class="section">Satellites</a>
+          <div style="color:white" class="divider"> / </div>
+          <div class="active section">{{ satellite.satelliteName }}</div>
+        </div>
         <div class="right menu">
           <div class="ui form">
             <div class="inline fields">
-              <div class="field">
-                <input placeholder="Email" type="text" />
+              <form class="ui form" action="/satellites/search">
+              <div style="padding-right:50px" class="ui action input">
+                <input type="text" name="Search" placeholder="Search...">
+                <button class="ui button">Search</button>
               </div>
-              <div class="field">
-                <input placeholder="Password" type="text" />
-              </div>
-              <div class="field">
-                <div class="ui green button">
-                  Sign in
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="ui grid massive message">
       <div class="ui container">
         <div class="row">
@@ -60,6 +63,7 @@
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui container">
+{% if satellite.flag  %}
  <div class="ui inverted segment">
   <div class="ui inverted accordion">
     <div class="active title">
@@ -122,16 +126,56 @@
 
   </div>
 </div>
+{% else %}
+<div class="ui inverted segment">
+  <div class="ui inverted accordion">
+    {% if satellite.image %}
+    <div class="active title">
+      <i class="dropdown icon"></i>
+      Image
+    </div>
+    <div class="active content">
+      <p><img src="{{satellite.image}}"></p>
+    </div>
+    {% endif %}
+   
+    {% if satellite.discoveredBy %}
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Discovered By
+    </div>
+    <div class="content">
+      <p>{{ satellite.discoveredBy}}</p>
+    </div>
+    {% endif %}
+    {% if satellite.discoveredIn %}
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Discovered In
+    </div>
+    <div class="content">
+      <p>{{ satellite.discoveredIn}}</p>
+    </div>
+    {% endif %}
+    {% if satellite.meanRadius %}
+    <div class="title">
+      <i class="dropdown icon"></i>
+      Mean Radius (In Kms)
+    </div>
+    <div class="content">
+      <p>{{ satellite.meanRadius}}</p>
+    </div>
+    {% endif %}
+
+
+
+
+  </div>
+  </div>
+  {% endif %}
+
 
     </div>
-<!--         <div class="row">
-          <div class="column">
-            <div class="ui divider"></div>
-            <footer>
-              &copy; 2017 Company, Inc.
-            </footer>
-          </div>
-        </div> -->
       </div>
     </div>
     <style type="text/css">

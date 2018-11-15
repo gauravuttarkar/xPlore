@@ -19,21 +19,21 @@
   <body>
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
+        <a class="header item" href="/">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section" href="/">Home</a>
+          <div style="color:white" class="divider"> / </div>
+          <div class="active section" href="/planets">Planets</div>
+        </div>
         <div class="right menu">
           <div class="ui form">
             <div class="inline fields">
-              <div class="field">
-                <input placeholder="Email" type="text" />
+              <form class="ui form" action="/planets/search">
+              <div style="padding-right:50px" class="ui action input">
+                <input type="text" name="Search" placeholder="Search...">
+                <button class="ui button">Search</button>
               </div>
-              <div class="field">
-                <input placeholder="Password" type="text" />
-              </div>
-              <div class="field">
-                <div class="ui green button">
-                  Sign in
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -53,44 +53,54 @@
       </div>
     </div>
     <div class="ui hidden divider"></div>
-    <div class="ui container">
-      <table class="ui very basic collapsing celled table">
-  <thead>
-    <tr><th>Planet</th>
-    <th>Mass (Jovian Mass)</th>
-    <th>Radius (R3)</th>
-    <th>Star</th>
-    <th>Rotation Period (Days)</th>
-  </tr></thead>
-  <tbody>
-    {% for planet in planets %}
-    <tr>
-      <td>
-        <h4 class="ui image header">
-          
-          <div class="content">
-            {{ planet.planetName }}
+<div class="ui container">
+ 
+    <div class="ui centered stackable four column grid">
+  {% for planet in planets %}
+  <div class="column">
+    <div class="ui piled segment">
 
+      <div class="content">
+        <a class="header">{{ planet.planetName }}</a>
+        <div class="meta">
+          <span><em><i>Mass (Jovian Mass):</i> </em>  {{planet.mass}} </span>
         </div>
-      </h4></td>
-      <td>
-        {{planet.mass}}
-      </td>
-      <td>
-        {{planet.radius}}
-      </td>
-      <td>
-        {{planet.star}}
-      </td>
-      <td>
-        {{planet.rotationPeriod}}
-      </td>
+        <div class="meta">
+          <span><em><i>Radius (r3):</i></em>   {{ planet.radius }} </span>
+        </div>
+        <div class="meta">
+          <span> <em><i>Star :</i></em>   {{ planet.star }} </span>
+        </div>
+        <div class="meta">
+          <span> <em><i> Rotation Period (Days) </i> </em>  {{planet.rotationPeriod}} </span>
+      </div>
+     <a style="color:white" href='/planets/{{planet.planetName}}'' class='white'> <button class="ui mini button"> Learn More </button> </a>
+      </div>
 
-    </tr>
-    {% endfor %}
+    </div>
+   </div> 
+  <div class="ui section divider"></div>
+  {% endfor %}
 
-</tbody>
-</table>
+</div>  
+
+<div class="pagination">
+    <span class="step-links">
+        {% if planets.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ planets.number }} of {{ planets.paginator.num_pages }}.
+        </span>
+
+        {% if planets.has_next %}
+            <a href="?page={{ planets.next_page_number }}">next</a>
+            <a href="?page={{ planets.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
         </div>
         <div class="row">
           <div class="column">

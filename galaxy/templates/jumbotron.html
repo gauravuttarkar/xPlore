@@ -23,17 +23,7 @@
         <div class="right menu">
           <div class="ui form">
             <div class="inline fields">
-              <div class="field">
-                <input placeholder="Email" type="text" />
-              </div>
-              <div class="field">
-                <input placeholder="Password" type="text" />
-              </div>
-              <div class="field">
-                <div class="ui green button">
-                  Sign in
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -54,43 +44,25 @@
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui container">
-      <div class="ui stackable grid">
-        <div class="three column row">
-          {% for galaxy in galaxies %}
-          <div class="column">
-            <h1 class="ui header">
-              {{ galaxy.galaxyName }}
-            </h1>
-            <p>
-              {{ galaxy.origin }}
-            </p>
-            <div class="ui small basic button">
-              View detailes &raquo;
-            </div>
+      <div class="ui centered stackable four column grid">
+      
+   
+        {% for galaxy in galaxies %}
+        <div class="column">
+        <div class="ui piled segment">
+        <div class="content">
+          <a class="header"> {{ galaxy.galaxyName }}</a>
+          <div class="meta">
+            <span><em><i>Galaxy Origin: </i> </em> {{ galaxy.origin }}</span>
           </div>
+
+         <a style="color:white" href='/galaxies/{{galaxy.galaxyName}}'' class='white'> <button class="ui mini button"> Learn More </button> </a>
+         </div>
+        </div>
+        </div>
+
           {% endfor %}
-<!--           <div class="column">
-            <h1 class="ui header">
-              Heading
-            </h1>
-            <p>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <div class="ui small basic button">
-              View detailes &raquo;
-            </div>
-          </div>
-          <div class="column">
-            <h1 class="ui header">
-              Heading
-            </h1>
-            <p>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <div class="ui small basic button">
-              View detailes &raquo;
-            </div>
-          </div> -->
+
         </div>
         <div class="row">
           <div class="column">

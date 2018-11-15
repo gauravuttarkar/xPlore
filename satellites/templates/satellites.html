@@ -17,24 +17,26 @@
     <script src="{% static 'dist/jquery/jquery.min.js' %}"></script>
   </head>
   <body>
-    
+
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
         <a class="header item">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section">Home</a>
+          <div style="color:white" class="divider"> / </div>
+           <a class="active section">Satellites</a>
+
+        </div>
         <div class="right menu">
           <div class="ui form">
             <div class="inline fields">
-              <div class="field">
-                <input placeholder="Email" type="text" />
+              <form class="ui form" action="/satellites/search">
+              <div style="padding-right:50px" class="ui action input">
+                <input type="text" name="Search" placeholder="Search...">
+                <button class="ui button">Search</button>
               </div>
-              <div class="field">
-                <input placeholder="Password" type="text" />
-              </div>
-              <div class="field">
-                <div class="ui green button">
-                  Sign in
-                </div>
-              </div>
+              </form>
+
             </div>
           </div>
         </div>
@@ -44,48 +46,59 @@
       <div class="ui container">
         <div class="row">
           <div class="h1 ui huge header">
-            PLanets
+            Satellites
           </div>
           <p>
-          A celestial body moving in an elliptical orbit round a star.
+          A satellite is an object that moves around a larger object.
           </p>
           <a class="ui large primary button">Learn more &raquo;</a>
         </div>
       </div>
     </div>
     <div class="ui hidden divider"></div>
-    <div class="ui container">
-      <table class="ui very basic collapsing celled table">
-  <thead>
-    <tr><th>Satellite</th>
-    <th> Orbiting Body </th>
-    <th> Description</th>
+<div class="ui container">
+ 
+<div class="ui centered stackable four column grid">
+  {% for satellite in satellites %}
+  <div class="column">
+    <div class="ui piled segment">
 
-  </tr></thead>
-  <tbody>
-    {% for satellite in satellites %}
-    <tr>
-      <td>
-        <h4 class="ui image header">
-          
-          <div class="content">
-           <a href='/satellites/{{satellite.satelliteName}}'> {{ satellite.satelliteName }}
-            </a>
+    <div class="content">
+      <a class="header">{{ satellite.satelliteName }}</a>
+      <div class="meta">
+        <span><i>Orbiting Body:</i> {{satellite.orbitingBody}}</span>
+      </div>
+      <div class="description">
+        <p> {{satellite.description}}</p>
+      </div>
 
-        </div>
-      </h4></td>
-      <td>
-        {{satellite.orbitingBody}}
-      </td>
-      <td>
-        {{satellite.description}}
-      </td>
+    <a style="color:white" href='/satellites/{{satellite.satelliteName}}'><button class="ui mini button"> Learn More</button></a>
+    </div>
+   </div> 
 
-    </tr>
-    {% endfor %}
+  </div>
+  <div class="ui section divider"></div>
+  {% endfor %}
 
-</tbody>
-</table>
+</div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if satellites.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ satellites.number }} of {{ satellites.paginator.num_pages }}.
+        </span>
+
+        {% if satellites.has_next %}
+            <a href="?page={{ satellites.next_page_number }}">next</a>
+            <a href="?page={{ satellites.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
         </div>
         <div class="row">
           <div class="column">

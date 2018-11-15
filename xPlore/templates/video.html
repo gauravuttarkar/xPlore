@@ -1,0 +1,31 @@
+ {% load static %}
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title></title>
+ </head>
+ <script>
+  
+  var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+
+
+  var vid = document.getElementById("myVideo");
+  vid.setAttribute("width",width - 20)
+  vid.setAttribute("height",height - 20)
+
+ </script>
+ <body>
+       <video  id="myVideo"  controls autoplay>
+        <source src="{% static 'media/vid1.mp4' %}" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+      </video>
+ </body>
+ </html>     
