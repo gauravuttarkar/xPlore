@@ -22,7 +22,16 @@
       <div class="ui container">
         <a class="header item">xPlore</a>
                       <div  class="right menu">
-
+                      <div style="margin-right:20px" class="ui form centered">
+                        <div class="inline fields">
+                          <form class="ui form" method="POST" action="/galaxies/nearest">
+                          <div style="padding-right:50px" class="ui action input">
+                            <input type="text" name="nearest" placeholder="Nearest galaxy within distance">
+                            <button class="ui button">Search</button>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
 
                       {% if user.is_authenticated %}
                       

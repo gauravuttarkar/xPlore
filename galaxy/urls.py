@@ -8,6 +8,7 @@ urlpatterns = [
     path('modify',views.modify),
     path('modify_submit',views.modify_submit),
     path('delete',views.delete),
+    path('nearest',views.nearest),
     path('<str:galaxy_name>',views.galaxyFunction),
 
    

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+import mysql.connector
 from django.http import HttpResponse
 from galaxy.models import galaxy
 
@@ -65,3 +65,31 @@ def delete(request):
 	obj.delete()
 
 	return redirect("/galaxies")	
+
+def nearest(request):
+	distance = request.POST.get("nearest")
+	print(distance)
+	distance = distance
+	conn = mysql.connector.connect(user='gaurav', database='xplore', password='root123')
+
+	cursor = conn.cursor()	
+	print(cursor.execute("CALL nearestGalaxy(" + distance + ");"))
+	li = cursor.fetchall()
+	data = []
+	for i in li:
+		print(type(i))
+		print(i)
+		data.append(galaxy.objects.get(galaxyName=i[0]))
+
+	print(data)
+	li = []
+
+	for i in data:
+		di = {}
+		di['galaxyName'] = i.galaxyName
+		di['image'] = i.image
+		di['origin'] = i.origin
+		li.append(di)
+	print(li)	
+	#return HttpResponse("Done and dusted")
+	return render(request,'galaxy/templates/jumbotron.html',{'galaxies':li})
