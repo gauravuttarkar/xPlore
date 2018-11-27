@@ -10,7 +10,7 @@
     <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
     <meta content="PPType" name="author" />
     <meta content="#ffffff" name="theme-color" />
-    <title>xPLore - Planets </title>
+    <title>xPlore - Planets </title>
     <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
@@ -45,24 +45,18 @@
       <div class="ui container">
         <div class="row">
           <div class="h1 ui huge header">
-            PLanets
+            Planets
           </div>
           <p>
           A celestial body moving in an elliptical orbit round a star.
           </p>
-          <a class="ui large primary button">Learn more &raquo;</a>
+          
         </div>
       </div>
     </div>
     <div class="ui hidden divider"></div>
 <div class="ui container">
-  <form class="ui form" action="/planets/search">
-  <div class="field">
-    <label>Search</label>
-    <input type="text" name="Search" placeholder="Search">
-  </div>
-  <button class="ui button" type="submit">Submit</button>
-</form>   
+  
     <div class="ui unstackable items">
   {% if planet.flag  %}
   <div class="item">
