@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from satellites.models import satellite, naturalSatellite, artificialSatellite
-
+from planets.models import planet
 
 def index(request):
 	print("Hitting satellites Page Successfull")
@@ -92,3 +92,95 @@ def search(request):
 	#return HttpResponse("Done and dusted")
 
 	return render(request,'satellites/templates/satellites.html',{'satellites':satellites})
+
+
+
+def modify_natural(request):
+	print("Done")
+	return render(request,'satellites/templates/modify_natural.html')
+
+def modify_natural_submit(request):
+
+
+	satelliteName = request.POST.get('satelliteName')
+	orbitingBody = request.POST.get('orbitingBody')
+	image = request.POST.get('image')
+	discoveredBy = request.POST.get('discoveredBy')
+	discoveredIn = request.POST.get('discoveredIn')
+	meanRadius = request.POST.get('meanRadius')
+
+	orbitingBody = planet.objects.get(planetName=orbitingBody)
+
+	obj = satellite.objects.create(satelliteName=satelliteName,
+										orbitingBody=orbitingBody)
+
+	obj.save()
+	
+	obj = naturalSatellite.objects.create(satelliteName=obj,
+											image=image,
+											discoveredBy=discoveredBy,
+											discoveredIn=discoveredIn,
+											meanRadius=meanRadius
+											)
+
+	obj.save()
+
+
+
+	return redirect("/satellites")	
+
+def delete_natural(request):
+	satelliteName = request.POST.get('satelliteName')
+
+	obj = naturalSatellite.objects.get(satelliteName=satelliteName)
+	obj.delete()
+
+	obj = satellite.objects.get(satelliteName=satelliteName)
+	obj.delete()
+
+
+	return redirect("/satellites")	
+
+def modify_artificial(request):
+	print("Done")
+	return render(request,'satellites/templates/modify_artificial.html')
+
+def modify_artificial_submit(request):
+
+	
+	satelliteName = request.POST.get('satelliteName')
+	orbitingBody = request.POST.get('orbitingBody')
+	dateOfLaunch = request.POST.get('dateOfLaunch')
+	launchSite = request.POST.get('launchSite')
+	launchVehicle = request.POST.get('launchVehicle')
+
+	orbitingBody = planet.objects.get(planetName=orbitingBody)
+
+	obj = satellite.objects.create(satelliteName=satelliteName,
+										orbitingBody=orbitingBody)
+
+	obj.save()
+	
+	obj = artificialSatellite.objects.create(satelliteName=obj,
+											dateOfLaunch=dateOfLaunch,
+											launchSite=launchSite,
+											launchVehicle=launchVehicle,
+											)
+
+	obj.save()
+
+
+
+	return redirect("/satellites")	
+
+
+def delete_artificial(request):
+	satelliteName = request.POST.get('satelliteName')
+	print(satelliteName)
+	obj = artificialSatellite.objects.get(satelliteName=satelliteName)
+	obj.delete()
+
+	obj = satellite.objects.get(satelliteName=satelliteName)
+	obj.delete()
+
+	return redirect("/satellites")	

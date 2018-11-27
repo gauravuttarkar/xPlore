@@ -14,16 +14,16 @@ class planet(models.Model):
 
 class solarPlanets(models.Model):
 	planetName = models.ForeignKey(planet,on_delete=models.CASCADE) 
-	meanDistanceFromSuninAU = models.CharField(max_length=100,null=False, default= None)
-	equatorialRadius = models.CharField(max_length=100,null=False, default= None)
-	surfaceArea = models.CharField(max_length=100,null=False, default= None)    
-	volume = models.CharField(max_length=100,null=False, default= None)
-	density = models.CharField(max_length=100,null=False, default= None)
-	escapeVelocity = models.CharField(max_length=100,null=False, default= None)
-	orbitalPeriod = models.CharField(max_length=100,null=False, default= None)
-	temperature = models.CharField(max_length=100,null=False, default= None)
-	moons = models.CharField(max_length=100,null=False, default= None)
-	rings = models.CharField(max_length=100,null=False, default= None)
+	meanDistanceFromSuninAU = models.CharField(max_length=100,null=True, default= None)
+	equatorialRadius = models.CharField(max_length=100,null=True, default= None)
+	surfaceArea = models.CharField(max_length=100,null=True, default= None)    
+	volume = models.CharField(max_length=100,null=True, default= None)
+	density = models.CharField(max_length=100,null=True, default= None)
+	escapeVelocity = models.CharField(max_length=100,null=True, default= None)
+	orbitalPeriod = models.CharField(max_length=100,null=True, default= None)
+	temperature = models.CharField(max_length=100,null=True, default= None)
+	moons = models.CharField(max_length=100,null=True, default= None)
+	rings = models.CharField(max_length=100,null=True, default= None)
 	
 
 

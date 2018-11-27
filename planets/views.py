@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from planets.models import planet, solarPlanets, exoPlanets
+from stars.models import star
 
 def index(request):
 	print("Hitting planets Page Successfull")
@@ -141,3 +142,84 @@ def planetFunction(request,planet):
 	return render(request,'planets/templates/individualPlanet.html',{'planet':di})
 
 	#return HttpResponse("Done and dusted")
+
+def modify_solar(request):
+	print("Done")
+	return render(request,'planets/templates/modify_solar.html')
+
+def modify_solar_submit(request):
+
+
+	planetName = request.POST.get('planetName')
+	starObj = request.POST.get('star')
+	mass = request.POST.get('mass')
+	radius = request.POST.get('radius')
+	rotationPeriod = request.POST.get('rotationPeriod')
+
+	starObj = star.objects.get(starName=starObj)
+
+	obj = planet.objects.create(planetName=planetName,
+										star=starObj,
+										mass=mass,
+										radius=radius,
+										rotationPeriod=rotationPeriod)
+
+	obj.save()
+
+	obj = solarPlanets.objects.create(planetName=obj)
+
+	obj.save()
+
+
+
+	return redirect("/planets")	
+
+def delete_solar(request):
+	planetName = request.POST.get('planetName')
+
+	obj = solarPlanets.objects.get(planetName=planetName)
+	obj.delete()
+
+	obj = planet.objects.get(planetName=planetName)
+	obj.delete()
+
+
+	return redirect("/planets")	
+
+def modify_exo(request):
+	print("Done")
+	return render(request,'planets/templates/modify_exo.html')
+
+def modify_exo_submit(request):
+
+	planetName = request.POST.get('planetName')
+	starObj = request.POST.get('star')
+	mass = request.POST.get('mass')
+	radius = request.POST.get('radius')
+	rotationPeriod = request.POST.get('rotationPeriod')
+
+	starObj = star.objects.get(starName=starObj)
+
+	obj = planet.objects.create(planetName=planetName,
+										star=starObj,
+										mass=mass,
+										radius=radius,
+										rotationPeriod=rotationPeriod)
+
+	obj.save()
+	distanceFromEarth = request.POST.get('distanceFromEarth')
+	obj = exoPlanets.objects.create(planetName=obj,distanceFromEarth=distanceFromEarth)
+
+	obj.save()
+	return redirect("/planets")	
+
+def delete_exo(request):
+	planetName = request.POST.get('planetName')
+	
+	obj = exoPlanets.objects.get(planetName=planetName)
+	obj.delete()
+
+	obj = planet.objects.get(planetName=planetName)
+	obj.delete()
+
+	return redirect("/planets")	

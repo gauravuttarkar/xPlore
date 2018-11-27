@@ -25,7 +25,7 @@ SECRET_KEY = '&=w9@gzd+w1dmj3h-^kw*z(pduiro-t=yh=b22n_=!j(2-lvd+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galaxy',
     'constellations' ,
-    'stars'   ,
+    'stars' ,  
     'satellites'
 ]
 
@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,6 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'xPlore.wsgi.application'
+
 
 
 # Database
@@ -133,5 +134,5 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'

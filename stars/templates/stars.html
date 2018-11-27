@@ -26,18 +26,30 @@
           <div style="color:white" class="divider"> / </div>
           <div class="active section" href="/stars">Stars</div>
         </div>
-        <div class="right menu">
-          <div class="ui form">
+        <div  class="right menu">
+
+          <div style="margin-right:20px" class="ui form centered">
             <div class="inline fields">
-              <form class="ui form" action="/stars/search">
+              <form class="ui form" action="/planets/search">
               <div style="padding-right:50px" class="ui action input">
                 <input type="text" name="Search" placeholder="Search...">
                 <button class="ui button">Search</button>
               </div>
               </form>
-    
             </div>
           </div>
+        {% if user.is_authenticated %}
+        
+        <div class="right item">
+          <a class="ui inverted button" style="margin-right:10px" href="/stars/modify" >Modify</a>
+          <a class="ui inverted button" href="/logout">Logout</a>
+        </div>
+        {% else %}
+         <div class="right item">
+          <a class="ui inverted button" href="/login" style="margin-right:10px" >Login</a>
+          <a class="ui inverted button" href="/signup">Sign Up</a>
+        </div>
+        {% endif %}
         </div>
       </div>
     </div>

@@ -9,12 +9,12 @@ class satellite(models.Model):
 
 class artificialSatellite(models.Model):
 	satelliteName = models.ForeignKey(satellite,on_delete=models.CASCADE)
-	origin = models.CharField(max_length=100, null=False,default=None) #3
-	users = models.CharField(max_length=100, null=False,default=None) #4
+	origin = models.CharField(max_length=100, null=True,default=None) #3
+	users = models.CharField(max_length=100, null=True,default=None) #4
 	#purpose = models.CharField(max_length=100, null=False,default=None) #5
-	classOfOrbit = models.CharField(max_length=100, null=False,default=None) #7
-	typeOfOrbit = models.CharField(max_length=100, null=False,default=None) #8
-	period = models.CharField(max_length=100, null=False,default=None) #14
+	classOfOrbit = models.CharField(max_length=100, null=True,default=None) #7
+	typeOfOrbit = models.CharField(max_length=100, null=True,default=None) #8
+	period = models.CharField(max_length=100, null=True,default=None) #14
 	dateOfLaunch = models.CharField(max_length=100, null=False,default=None) #18
 	launchSite = models.CharField(max_length=100, null=False,default=None) #22
 	launchVehicle = models.CharField(max_length=100, null=False,default=None) #23

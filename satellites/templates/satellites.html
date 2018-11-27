@@ -20,25 +20,38 @@
 
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
+        <a class="header item" href="/">xPlore</a>
         <div style="color:white;padding:20px" class="ui breadcrumb">
-          <a class="section">Home</a>
+          <a class="section" href="/">Home</a>
           <div style="color:white" class="divider"> / </div>
            <a class="active section">Satellites</a>
 
         </div>
-        <div class="right menu">
-          <div class="ui form">
+        <div  class="right menu">
+
+          <div style="margin-right:20px" class="ui form centered">
             <div class="inline fields">
-              <form class="ui form" action="/satellites/search">
+              <form class="ui form" action="/planets/search">
               <div style="padding-right:50px" class="ui action input">
                 <input type="text" name="Search" placeholder="Search...">
                 <button class="ui button">Search</button>
               </div>
               </form>
-
             </div>
           </div>
+        {% if user.is_authenticated %}
+        
+        <div class="right item">
+          <a class="ui inverted button" style="margin-right:10px" href="/satellites/modify_natural">Modify Natural</a>
+          <a class="ui inverted button" style="margin-right:10px" href="/satellites/modify_artificial">Modify Artificial</a>
+          <a class="ui inverted button" href="/logout">Logout</a>
+        </div>
+        {% else %}
+         <div class="right item">
+          <a class="ui inverted button" href="/login" style="margin-right:10px" >Login</a>
+          <a class="ui inverted button" href="/signup">Sign Up</a>
+        </div>
+        {% endif %}
         </div>
       </div>
     </div>

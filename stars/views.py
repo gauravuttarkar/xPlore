@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from stars.models import star
+from constellations.models import constellation
 from django.http import HttpResponse
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
@@ -36,7 +37,7 @@ def index(request):
 
 
 def starFunction(request,star_name):
-	starObj = star.objects.get(starName=star_name)
+	starObj = star.objects.get(starName=star_name) 
 	print(starObj)
 	i = starObj
 	di={}
@@ -58,7 +59,7 @@ def starFunction(request,star_name):
 
 def starsFromAConstellation(request,constellation):
 	print(constellation)	
-	stars = star.objects.all().filter(constellationName=constellation)
+	stars = star.objects.all().filter(constellationName=constellation)#select * from stars where constellationName=constellation
 	li = []
 	for i in stars:
 		di = {}
@@ -117,3 +118,45 @@ def search(request):
 	#return HttpResponse("Done and dusted")
 
 	return render(request,'stars/templates/stars.html',{'stars':stars})	
+
+def modify(request):
+	print("Done")
+	return render(request,'stars/templates/modify.html')
+
+def modify_submit(request):
+
+	starName = request.POST.get('starName')
+	declination = request.POST.get('declination')
+
+	constellationName = request.POST.get('constellationName')
+	rightAscension = request.POST.get('rightAscension')
+	notes = request.POST.get('notes')
+	distance = request.POST.get('distance')
+	confirmedPlanets = request.POST.get('confirmedPlanets')
+	age = request.POST.get('age')
+	temperature = request.POST.get('temperature')
+	mass = request.POST.get('mass')
+	apparentMagnitude = request.POST.get('apparentMagnitude')
+
+	constellationName = constellation.objects.get(constellationName=constellationName)
+	obj = star.objects.create(starName=starName,
+										declination=declination,
+										constellationName=constellationName,
+										rightAscension=rightAscension,
+										notes=notes,
+										distance=distance,
+										confirmedPlanets=confirmedPlanets,
+										age=age,
+										temperature=temperature,
+										mass=mass,
+										apparentMagnitude=apparentMagnitude)
+	obj.save()
+
+	return redirect("/stars")	
+
+def delete(request):
+	starName = request.POST.get('starName')
+	obj = star.objects.get(starName=starName)
+	obj.delete()
+
+	return redirect("/stars")		

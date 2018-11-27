@@ -19,16 +19,32 @@
   <body>
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
-        <div class="right menu">
-          <div class="ui form">
-            <div class="inline fields">
-              
+        <a class="header item" href="/">xPlore</a>
 
-            </div>
-          </div>
-        </div>
+                <div style="color:white;padding:20px" class="ui breadcrumb">
+                  <a class="section" href="/">Home</a>
+                  <div style="color:white" class="divider"> / </div>
+                   <a class="section">Constellations</a>
+                </div>   
+                      <div  class="right menu">
+
+
+                      {% if user.is_authenticated %}
+                      
+                      <div class="right item">
+                        <a class="ui inverted button" style="margin-right:10px" href="/constellations/modify">Modify</a>
+                        <a class="ui inverted button" href="/logout">Logout</a>
+                      </div>
+                      {% else %}
+                       <div class="right item">
+                        <a class="ui inverted button" href="/login" style="margin-right:10px" >Login</a>
+                        <a class="ui inverted button" href="/signup">Sign Up</a>
+                       </div>
+                      {% endif %}
+                      </div>
       </div>
+
+
     </div>
     <div class="ui grid massive message">
       <div class="ui container">
@@ -50,7 +66,7 @@
     <tr><th>Constellation</th>
     <th>Origin</th>
     <th>Meaning</th>
-    <th>Brightest Star</th>
+   <!--  <th>Brightest Star</th> -->
     <th>Stars </th>
   </tr></thead>
   <tbody>
@@ -70,9 +86,9 @@
       <td>
         {{constellation.meaning}}
       </td>
-      <td>
+<!--       <td>
         {{constellation.brightestStar}}
-      </td>
+      </td> -->
       <td>
         <a style="color:white" href="/stars/starsFromAConstellation/{{ constellation.constellationName }}"> <button class="ui black button">Stars</button></a>
       </td>

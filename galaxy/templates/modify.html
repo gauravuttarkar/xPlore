@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
+    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
+    <meta content="PPType" name="author" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>xPLore - Star </title>
+    <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'dist/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dist/jquery/accordion.js' %}"></script>
+    
+    <script language='javascript'>
+                 $(document).ready(function(){
+                    $('.ui.accordion').accordion();
+                 });
+    </script>
+    
+  </head>
+  <body>
+    <div class="ui fixed borderless inverted menu">
+      <div class="ui container">
+        <a class="header item">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section">Home</a>
+          <div style="color:white" class="divider"> / </div>
+           <a class="section">Stars</a>
+          <div style="color:white" class="divider"> / </div>
+          <div class="active section">{{ star.starName }}</div>
+        </div>
+
+      </div>
+    </div>
+
+   <div class="container" style="width:50%;margin-left: 20%;margin-right: 20%;margin-top: 10%">
+        <h3>Insert / Update</h3>
+      <form class="ui form centered" method="POST" action="/galaxies/modify_submit">
+        <div class="field">
+          <label>Galaxy Name</label>
+          <input type="text" name="galaxyName" placeholder="Galaxy Name">
+        </div>
+        <div class="field">
+          <label>Origin</label>
+          <input type="text" name="origin" placeholder="origin">
+        </div>
+        <div class="field">
+          <label>Constellation</label>
+          <input type="text" name="constellation" placeholder="Constellation">
+        </div>
+              <div class="field">
+          <label>Notes</label>
+          <input type="text" name="notes" placeholder="Notes">
+        </div>
+              <div class="field">
+          <label>Distance</label>
+          <input type="text" name="distance" placeholder="Distance">
+        </div>
+          <div class="field">
+          <label>Image</label>
+          <input type="text" name="image" placeholder="Image">
+        </div>
+
+        <button class="ui button" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="container" style="width:50%;margin-left: 20%;margin-right: 20%;margin-top: 10%">
+      <h3>Delete</h3>
+    <form class="ui form centered" method="POST" action="/galaxies/delete">
+      <div class="field">
+        <label>Galaxy Name</label>
+        <input type="text" name="galaxyName" placeholder="Galaxy Name">
+      </div>
+
+      <button class="ui button" type="submit">Submit</button>
+    </form>
+  </div>
+
+    <style type="text/css">
+      .ui.form .inline.fields {
+        margin: 0.5em;
+      }
+      
+      .ui.grid.message {
+        background-color: #eeeeee;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .ui.grid.message .row {
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
+      }
+    </style>
+  </body>
+</html>
+
