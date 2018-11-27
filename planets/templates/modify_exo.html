@@ -27,13 +27,12 @@
   <body>
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
+        <a class="header item" href="/">xPlore</a>
         <div style="color:white;padding:20px" class="ui breadcrumb">
-          <a class="section">Home</a>
+          <a class="section" href="/">Home</a>
           <div style="color:white" class="divider"> / </div>
-           <a class="section">Stars</a>
-          <div style="color:white" class="divider"> / </div>
-          <div class="active section">{{ star.starName }}</div>
+           <a class="section" href="/planets">Planets</a>
+      
         </div>
 
       </div>
@@ -77,7 +76,7 @@
 
     <div class="container" style="width:50%;margin-left: 20%;margin-right: 20%;margin-top: 10%">
       <h3>Delete</h3>
-    <form class="ui form centered" method="POST" action="/planets/delete_exo">
+    <form style="margin-bottom: 30px" class="ui form centered" method="POST" action="/planets/delete_exo">
       <div class="field">
         <label>Planet Name</label>
         <input type="text" name="planetName" placeholder="Planet Name">

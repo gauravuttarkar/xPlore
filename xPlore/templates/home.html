@@ -153,29 +153,53 @@
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
-    <a class="active item">Home</a>
-    <a class="item">Galaxies</a>
-    <a class="item">Planets</a>
-    <a class="item">Stars</a>
-<!--     <div class="right menu">
-      <div class="item">
-        <a class="ui button">Log in</a>
-      </div>
-      <div class="item">
-        <a class="ui primary button">Sign Up</a>
-      </div>
-    </div> -->
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item" href="/galaxies">Galaxies</a>
+        <a class="item" href="/planets">Planets</a>
+        <a class="item" href="/stars">Stars</a>
+        <a class="item" href="/constellations">Constellations</a>
+        <a class="item" href="/satellites">Satellites</a>
+        {% if user.is_authenticated %}
+        
+        <div class="right item">
+          <a class="ui  button" style="margin-right: 10px">Hello {{ user.username }}</a>
+          <a class="ui  button" href="/logout">Logout</a>
+        </div>
+        {% else %}
+         <div class="right item">
+          <a class="ui  button" style="margin-right: 10px">href="/login">Login</a>
+          <a class="ui  button" href="/signup">Sign Up</a>
+        </div>
+        {% endif %}
   </div>
 </div>
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-  <a class="active item">Home</a>
-  <a class="item">Work</a>
-  <a class="item">Company</a>
-  <a class="item">Careers</a>
-  <a class="item">Login</a>
-  <a class="item">Signup</a>
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item" href="/galaxies">Galaxies</a>
+        <a class="item" href="/planets">Planets</a>
+        <a class="item" href="/stars">Stars</a>
+        <a class="item" href="/constellations">Constellations</a>
+        <a class="item" href="/satellites">Satellites</a>
+        {% if user.is_authenticated %}
+        
+        <div class="right item">
+          <a class="ui inverted button" >Hello {{ user.username }}</a>
+          <a class="ui inverted button" href="/logout">Logout</a>
+        </div>
+        {% else %}
+         <div class="right item">
+          <a class="ui inverted button" href="/login">Login</a>
+          <a class="ui inverted button" href="/signup">Sign Up</a>
+        </div>
+        {% endif %}
 </div>
 
 
@@ -230,12 +254,12 @@
           <p>The Big Bang.</p>
         </div>
         <div class="six wide right floated column">
-          <img src="{% static 'media/bigbang.jpeg' %}" class="ui large bordered rounded image">
+          <img src="{% static 'media/bigbang.jpeg' %}" class="ui rounded medium bordered image">
         </div>
       </div>
       <div class="row">
         <div class="center aligned column">
-          <a class="ui huge button">Check Them Out</a>
+          
         </div>
       </div>
     </div>
@@ -246,7 +270,7 @@
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="six wide left floated column">
-          <img src="{% static 'media/galaxy.jpeg' %}" class="ui large bordered rounded image">
+          <img src="{% static 'media/galaxy.jpeg' %}" class="ui medium rounded bordered image">
         </div>
         <div class="eight wide column">
           <h3 class="ui header">What is a Galaxy??</h3>
@@ -264,7 +288,7 @@
           <p>A star is type of astronomical object consisting of a luminous spheroid of plasma held together by its own gravity. The nearest star to Earth is the Sun. Historically, the most prominent stars were grouped into constellations.</p>
         </div>
         <div class="six wide right floated column">
-          <img src="{% static 'media/star.jpeg' %}" class="ui large bordered rounded image">
+          <img src="{% static 'media/star.jpeg' %}" class="ui rounded medium bordered image">
         </div>
       </div>
        </div>
@@ -274,7 +298,7 @@
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="six wide left floated column">
-          <img src="{% static 'media/constellation.jpg' %}" class="ui large bordered rounded image">
+          <img src="{% static 'media/constellation.jpg' %}" class="ui rounded medium bordered image">
         </div>
         <div class="eight wide column">
           <h3 class="ui header">But, what is a Constellation??</h3>
@@ -289,11 +313,11 @@
       <div class="row">
         <div class="eight wide column">
          
-          <h3 class="ui header">Now,Let's see what a Planet is??</h3>
+          <h3 class="ui header">Now, Let's see what a Planet is??</h3>
           <p>A planet is an astronomical body orbiting a star or stellar remnant that is massive enough to be rounded by its own gravity, is not massive enough to cause thermonuclear fusion, and has cleared its neighbouring region of planetesimals.</p>
         </div>
         <div class="six wide right floated column">
-          <img src="{% static 'media/planet.jpeg' %}" class="ui large bordered rounded image">
+          <img class="ui medium bordered image rounded" src="{% static 'media/planet.jpeg' %}" >
         </div>
       </div>
        </div>
@@ -303,7 +327,7 @@
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="six wide left floated column">
-          <img src="{% static 'media/satellite.jpeg' %}" class="ui large bordered rounded image">
+          <img src="{% static 'media/satellite.jpeg' %}" class="ui rounded medium bordered image">
         </div>
         <div class="eight wide column">
           <h3 class="ui header">Now that we know what a planet is, lets see what's revolving around them?? It is a Satellite!!</h3>

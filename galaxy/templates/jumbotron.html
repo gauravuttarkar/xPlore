@@ -20,7 +20,13 @@
   <body>
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
+        <a class="header item" href="/">xPlore</a>
+        <div style="color:white;padding:20px" class="ui breadcrumb">
+          <a class="section" href="/">Home</a>
+          <div style="color:white" class="divider"> / </div>
+           <a class="active section">Galaxy</a>
+
+        </div>
                       <div  class="right menu">
                       <div style="margin-right:20px" class="ui form centered">
                         <div class="inline fields">
@@ -49,15 +55,15 @@
       </div>
     </div>
     <div class="ui grid massive message">
-      <div style="font-family:  'Merriweather', serif;word-spacing:0.25em;line-height:20px" class="ui container">
+      <div style="font-family:  'Merriweather', serif;" class="ui container">
         <div class="row">
           <div class="h1 ui huge header">
             Galaxies
           </div>
-          <p>
+          <p style="line-height: 30px">
           A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. The word galaxy is derived from the Greek galaxias, literally "milky", a reference to the Milky Way
           </p>
-          <a class="ui large primary button">Learn more &raquo;</a>
+          
         </div>
       </div>
     </div>
@@ -71,7 +77,7 @@
         <div class="ui piled segment">
         <div class="content">
           <a class="header"> {{ galaxy.galaxyName }}</a>
-          <div class="meta">
+          <div style="margin:1em" class="meta">
             <span><em><i>Galaxy Origin: </i> </em> {{ galaxy.origin }}</span>
           </div>
 

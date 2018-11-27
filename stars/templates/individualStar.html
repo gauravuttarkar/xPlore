@@ -10,7 +10,7 @@
     <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
     <meta content="PPType" name="author" />
     <meta content="#ffffff" name="theme-color" />
-    <title>xPLore - Star </title>
+    <title>xPlore - Star </title>
     <link href="{% static 'dist/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/default.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'stylesheets/pandoc-code-highlight.css' %}" rel="stylesheet" type="text/css" />
@@ -27,11 +27,11 @@
   <body>
     <div class="ui fixed borderless inverted menu">
       <div class="ui container">
-        <a class="header item">xPlore</a>
+        <a class="header item" href="/">xPlore</a>
         <div style="color:white;padding:20px" class="ui breadcrumb">
-          <a class="section">Home</a>
+          <a class="section" href="/">Home</a>
           <div style="color:white" class="divider"> / </div>
-           <a class="section">Stars</a>
+           <a class="section" href="/stars">Stars</a>
           <div style="color:white" class="divider"> / </div>
           <div class="active section">{{ star.starName }}</div>
         </div>
